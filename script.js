@@ -83,9 +83,6 @@ Use:
 data.content   // the quote text
 data.author    // the author
 */
-
-// - Display the quote text inside the <p> with id="t3-quote".
-    // - Display the author inside the <p> with id="t3-author".
 const t3loadQuote = document.getElementById("t3-loadQuote");
 const t3quote = document.getElementById("t3-quote");
 const t3author = document.getElementById("t3-author");
@@ -134,3 +131,27 @@ data.main.temp      → temperature (°C)
 data.main.humidity  → humidity (%)
 data.wind.speed     → wind speed (m/s)
 */
+
+const t4temp = document.getElementById("t4-temp");
+const t4hum = document.getElementById("t4-hum");
+const t4wind = document.getElementById("t4-wind")
+
+const t4loadWx = document.getElementById("t4-loadWx");
+t4loadWx.addEventListener("click", function() {
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=Dammam&appid=API_KEY=metric")
+        .then(function (response){
+            if(!response.ok){
+                throw new Error("HTTP " + response.status);
+            }
+            return response.json();
+        })
+        .then(function (json) {
+            t4temp.innerHTML = json.main.temp;
+            t4hum.innerHTML = json.main.humidity;
+            t4wind.innerHTML = json.main.speed;
+        })
+        .catch(function (error) {
+            console.log(error);
+    })
+})
+
