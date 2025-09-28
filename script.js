@@ -138,7 +138,7 @@ const t4wind = document.getElementById("t4-wind")
 
 const t4loadWx = document.getElementById("t4-loadWx");
 t4loadWx.addEventListener("click", function() {
-    fetch("https://api.openweathermap.org/data/2.5/weather?q=Dammam&appid=API_KEY=metric")
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=Dammam&appid=e720b4ca17b718918a2f3c3c31ecc166&units=metric")
         .then(function (response){
             if(!response.ok){
                 throw new Error("HTTP " + response.status);
@@ -148,7 +148,7 @@ t4loadWx.addEventListener("click", function() {
         .then(function (json) {
             t4temp.innerHTML = json.main.temp;
             t4hum.innerHTML = json.main.humidity;
-            t4wind.innerHTML = json.main.speed;
+            t4wind.innerHTML = json.wind.speed;
         })
         .catch(function (error) {
             console.log(error);
