@@ -50,9 +50,11 @@ button.addEventListener("click", function () {
     // change text here
 });
 */
-button = document.getElementById("t2-status");
-document.addEventListener("click", function() {
-    button.innerHTML = "You clicked the button!"
+
+t2sts = document.getElementById("t2-status");
+button = document.getElementById("t2-btn");
+button.addEventListener("click", function() {
+    t2sts.innerHTML = "You clicked the button!"
 });
 
 /*  
