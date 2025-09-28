@@ -51,13 +51,13 @@ button.addEventListener("click", function () {
 });
 */
 
-t2sts = document.getElementById("t2-status");
-button = document.getElementById("t2-btn");
+const t2sts = document.getElementById("t2-status");
+const button = document.getElementById("t2-btn");
 button.addEventListener("click", function() {
     t2sts.innerHTML = "You clicked the button!"
 });
 
-/*  
+/*
 =======================================
 TODO3: Inspiring Quote Board
 ---------------------------------------
