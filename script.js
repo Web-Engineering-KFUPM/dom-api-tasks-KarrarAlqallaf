@@ -83,9 +83,34 @@ Use:
 data.content   // the quote text
 data.author    // the author
 */
- 
 
-/*  
+// - Display the quote text inside the <p> with id="t3-quote".
+    // - Display the author inside the <p> with id="t3-author".
+const t3loadQuote = document.getElementById("t3-loadQuote");
+const t3quote = document.getElementById("t3-quote");
+const t3author = document.getElementById("t3-author");
+t3loadQuote.addEventListener("click", function() {
+fetch("https://dummyjson.com/quotes/random")
+    .then(function (response) {
+        if (!response.ok) {
+            throw new Error("HTTP " + response.status);
+        }
+        return response.json();
+    })
+    .then(function (json) {
+        t3quote.innerHTML = json.quote;
+        t3author.innerHTML = json.author;
+
+    })
+    .catch(function (error) {
+        console.error(error);
+    })
+})
+
+
+/*
+
+
 =======================================
 TODO4: Dammam Weather Now
 ---------------------------------------
